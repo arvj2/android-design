@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/actionbar-compat/actionbar-compat.iml" filepath="$PROJECT_DIR$/actionbar-compat/actionbar-compat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test/actionbar-test/actionbar-test.iml" filepath="$PROJECT_DIR$/test/actionbar-test/actionbar-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-design.iml" filepath="$PROJECT_DIR$/android-design.iml" />
+    </modules>
+  </component>
+</project>
+
