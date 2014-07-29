@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.XmlResourceParser;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.*;
 import android.widget.*;
 import org.xmlpull.v1.XmlPullParser;
@@ -178,11 +179,13 @@ public class ActionBarHelperBase extends ActionBarHelper {
         private WrappedMenuInflater(Context context, MenuInflater inflater) {
             super(context);
             this.inflater = inflater;
+            Log.e( "*********","one: "+inflater );
         }
 
         @Override
         public void inflate(int menuRes, Menu menu) {
             loadActionbarMetadata(menuRes);
+            Log.e( "*********","two: "+menu );
             inflater.inflate(menuRes, menu);
         }
 

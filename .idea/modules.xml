@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/tests/actionbar/actionbar.iml" filepath="$PROJECT_DIR$/tests/actionbar/actionbar.iml" />
       <module fileurl="file://$PROJECT_DIR$/actionbar-compat/actionbar-compat.iml" filepath="$PROJECT_DIR$/actionbar-compat/actionbar-compat.iml" />
-      <module fileurl="file://$PROJECT_DIR$/test/actionbar-test/actionbar-test.iml" filepath="$PROJECT_DIR$/test/actionbar-test/actionbar-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-animation/android-animation.iml" filepath="$PROJECT_DIR$/android-animation/android-animation.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-design.iml" filepath="$PROJECT_DIR$/android-design.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api-demos/api-demos.iml" filepath="$PROJECT_DIR$/api-demos/api-demos.iml" />
     </modules>
   </component>
 </project>
