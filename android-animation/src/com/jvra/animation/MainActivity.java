@@ -1,48 +1,57 @@
 package com.jvra.animation;
 
-import android.app.Activity;
-import android.graphics.drawable.ClipDrawable;
-import android.graphics.drawable.RotateDrawable;
+import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.*;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import com.jvra.animation.view.ViewGroupTest;
 
-public class MainActivity extends Activity {
+import java.util.Arrays;
+import java.util.List;
+
+public class MainActivity extends ListActivity implements AdapterView.OnItemClickListener {
+    /**
+     * Called when the activity is first created.
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        ArrayAdapter<Entry> adapter = new ArrayAdapter<Entry>(this, android.R.layout.simple_list_item_1, getEntries());
+        setListAdapter(adapter);
+
+        getListView().setOnItemClickListener(this);
     }
 
-    public void onAnim(View v) {
-        slideDownAnimation();
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+        Entry entry = getEntries().get(position);
+        startActivity(new Intent(this, entry.activity));
     }
 
-    private void slideDownAnimation(){
-        AnimationSet set = new AnimationSet(true);
-
-        Animation animation = new AlphaAnimation(0f,1f);
-        animation.setDuration(1000);
-        set.addAnimation( animation );
-
-        animation = new TranslateAnimation(
-                Animation.RELATIVE_TO_SELF,0f,Animation.RELATIVE_TO_SELF,0f,
-                Animation.RELATIVE_TO_PARENT,0f,Animation.RELATIVE_TO_SELF,-1f
-                );
-        animation.setDuration(1500);
-        set.addAnimation( animation );
-        set.setFillAfter(true);
-
-        ImageView image = ( ImageView )findViewById( android.R.id.icon );
-
-   //     LayoutAnimationController controller = new LayoutAnimationController(set,0.25f);
-
-        image.startAnimation( set );
+    private List<Entry> getEntries() {
+        return Arrays.asList(
+                new Entry(SimpleLayoutTransition.class, SimpleLayoutTransition.class.getSimpleName()),
+                new Entry(ObjectAnimations.class, ObjectAnimations.class.getSimpleName()),
+                new Entry(ViewGroupTest.class, ViewGroupTest.class.getSimpleName())
+        );
     }
 
-    private void manualAnimation(){
-        ImageView image = ( ImageView ) findViewById( android.R.id.icon );
+    private class Entry {
+        Class<?> activity;
+        String title;
+
+        Entry(Class<?> activity, String title) {
+            this.activity = activity;
+            this.title = title;
+        }
+
+        @Override
+        public String toString() {
+            return title;
+        }
     }
+
 }
