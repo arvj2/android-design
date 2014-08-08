@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import com.jvra.animation.atrs.AttributeSetCrawler;
+import com.jvra.animation.view.CustomLayout;
 import com.jvra.animation.view.ViewGroupTest;
 
 import java.util.Arrays;
@@ -35,7 +37,10 @@ public class MainActivity extends ListActivity implements AdapterView.OnItemClic
         return Arrays.asList(
                 new Entry(SimpleLayoutTransition.class, SimpleLayoutTransition.class.getSimpleName()),
                 new Entry(ObjectAnimations.class, ObjectAnimations.class.getSimpleName()),
-                new Entry(ViewGroupTest.class, ViewGroupTest.class.getSimpleName())
+                new Entry(ViewGroupTest.class, ViewGroupTest.class.getSimpleName()),
+                new Entry(AttributeSetCrawler.class, AttributeSetCrawler.class.getSimpleName()),
+                new Entry(CustomLayoutActivity.class, CustomLayoutActivity.class.getSimpleName()),
+                new Entry(FixedGridLayoutActivity.class, FixedGridLayoutActivity.class.getSimpleName())
         );
     }
 

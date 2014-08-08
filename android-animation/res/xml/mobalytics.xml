@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources
+           xmlns:tools="http://schemas.android.com/tools"
+           tools:ignore="TypographyDashes"
+        >
+        <bool name="active">true</bool>
+    <integer name="max_time">500</integer>
+
+    <screenName name="com.class">A quela</screenName>
+</resources>

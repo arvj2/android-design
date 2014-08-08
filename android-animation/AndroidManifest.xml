@@ -17,5 +17,8 @@
         <activity android:name=".ObjectAnimations"/>
         <activity android:name=".HitActivity"/>
         <activity android:name=".view.ViewGroupTest"/>
+        <activity android:name=".atrs.AttributeSetCrawler"/>
+        <activity android:name=".CustomLayoutActivity"/>
+        <activity android:name=".FixedGridLayoutActivity" />
     </application>
 </manifest>
