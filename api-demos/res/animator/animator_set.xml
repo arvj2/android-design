@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <!--
+        Cuando se omite el valueTo al especificar el valueFrom,este se convierte en el valueTo, lo mismo aplica para el niverso
+    -->
+    <objectAnimator
+            android:duration="1000"
+            android:valueFrom="200"
+            android:valueType="floatType"
+            android:propertyName="x"
+            android:repeatCount="1"
+            android:repeatMode="reverse"
+            />
+    <objectAnimator
+            android:duration="1000"
+            android:valueFrom="400"
+            android:valueType="floatType"
+            android:propertyName="y"
+            android:repeatCount="1"
+            android:repeatMode="reverse"
+            />
+</set>

@@ -12,5 +12,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name=".animation.AnimationCloning"/>
+        <activity android:name=".animation.AnimationLoading"/>
+        <activity android:name=".animation.AnimationSeeking"/>
+        <activity android:name=".animation.AnimatorEvents"/>
+        <activity android:name=".animation.BouncingBalls"/>
+
+
     </application>
 </manifest>

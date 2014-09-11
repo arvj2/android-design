@@ -20,5 +20,6 @@
         <activity android:name=".atrs.AttributeSetCrawler"/>
         <activity android:name=".CustomLayoutActivity"/>
         <activity android:name=".FixedGridLayoutActivity" />
+        <activity android:name=".LayoutAnimationsHideShow" />
     </application>
 </manifest>
