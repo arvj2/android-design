@@ -8,7 +8,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.os.Bundle;
-import android.view.DragEvent;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +21,9 @@ import java.util.List;
  * Created by Jansel Valentin R. (jrodr) on 08/29/14.
  */
 public class BouncingBalls extends Activity{
+
+
+    private static final String TAG = BouncingBalls.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +67,28 @@ public class BouncingBalls extends Activity{
 
         @Override
         public boolean onTouchEvent(MotionEvent event) {
+
+            final int hsize = event.getHistorySize();
+            final int pointers = event.getPointerCount();
+
+            Log.e( TAG, "Preparing to register Touch event" );
+
+            Log.e( TAG, "Historical positions\n" );
+            for(  int i=0; hsize>i;++i ){
+                Log.e( TAG,"At time "+event.getHistoricalEventTime(i) );
+                for( int j=0; pointers>j; ++j ){
+                    String line = String.format( "pointer %d: (%f,%f) ",event.getPointerId( j ),event.getHistoricalX(j,i), event.getHistoricalY(j,i) );
+                    Log.e( TAG, line );
+                }
+            }
+
+            Log.e( TAG, "Current positions\n" );
+            Log.e( TAG, "At time "+event.getEventTime() );
+            for(  int i=0; pointers>i;++i ){
+                String line = String.format( " pointer %d: (%f,%f)",event.getPointerId(i),event.getX(),event.getY() );
+                Log.e( TAG, line );
+            }
+            return true;
         }
     }
 }
