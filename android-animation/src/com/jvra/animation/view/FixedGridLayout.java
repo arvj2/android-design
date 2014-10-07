@@ -1,6 +1,7 @@
 package com.jvra.animation.view;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -8,6 +9,8 @@ import android.view.ViewGroup;
  * Created by Jansel R. Abreu (Vanwolf) on 7/31/2014.
  */
 public class FixedGridLayout extends ViewGroup {
+
+    private static final String T = FixedGridLayout.class.getSimpleName();
 
     private int cellWidth;
     private int cellHeight;
@@ -66,17 +69,16 @@ public class FixedGridLayout extends ViewGroup {
             int w = child.getMeasuredWidth();
             int h = child.getMeasuredHeight();
 
-            int l = x + (cellWidth - w) / 2;
-            int t = y + (cellHeight - h) / 2;
+            int l = x + ((cellWidth - w) / 2);
+            int t = y + ((cellHeight - h) / 2);
 
             child.layout(l,t,l+w,t+h);
 
-            if (i >= (columns - 1)) {
+            if ( 0!=i && 0==(i %(columns-1)) ) {
                 y += cellHeight;
-                x = i = 0;
+                x = 0;
             } else {
                x += cellWidth;
-               ++i;
             }
         }
     }

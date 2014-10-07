@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import com.jvra.demos.animation.AnimationCloning;
+import com.jvra.demos.animation.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -31,12 +31,16 @@ public class MainActivity extends ListActivity implements AdapterView.OnItemClic
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
         Entry entry = getEntries().get(position);
-        startActivity( new Intent(this,entry.getClass() ) );
+        startActivity( new Intent(this,entry.activity ) );
     }
 
     private List<Entry> getEntries(){
         return Arrays.asList(
-            new Entry(AnimationCloning.class,"Animation Cloning" )
+            new Entry(AnimationCloning.class,"Animation Cloning" ),
+            new Entry(AnimationLoading.class,"Animation Loading" ),
+            new Entry(AnimationSeeking.class,"Animation Seeking" ),
+            new Entry(AnimatorEvents.class,"Animator Events" ),
+            new Entry(BouncingBalls.class,"Bouncing Balls" )
         );
     }
 
