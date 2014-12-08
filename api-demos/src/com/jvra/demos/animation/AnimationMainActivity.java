@@ -1,4 +1,4 @@
-package com.jvra.demos;
+package com.jvra.demos.animation;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -8,14 +8,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import com.jvra.demos.accessibility.AccessibilityMainActivity;
 import com.jvra.demos.animation.*;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-public class MainActivity extends ListActivity implements AdapterView.OnItemClickListener{
+public class AnimationMainActivity extends ListActivity implements AdapterView.OnItemClickListener{
     /**
      * Called when the activity is first created.
      */
@@ -25,7 +24,7 @@ public class MainActivity extends ListActivity implements AdapterView.OnItemClic
         ArrayAdapter<Entry> adapter = new ArrayAdapter<Entry>(this,android.R.layout.simple_list_item_1,getEntries());
         setListAdapter(adapter);
 
-        getListView().setOnItemClickListener(this);
+       getListView().setOnItemClickListener(this);
     }
 
 
@@ -37,9 +36,14 @@ public class MainActivity extends ListActivity implements AdapterView.OnItemClic
 
     private List<Entry> getEntries(){
         return Arrays.asList(
-                new Entry(AccessibilityMainActivity.class,"Accessibility" ),
-                new Entry(AnimationMainActivity.class,"Animations" )
-        );
+            new Entry(AnimationCloning.class,"Animation Cloning" ),
+            new Entry(AnimationLoading.class,"Animation Loading" ),
+            new Entry(AnimationSeeking.class,"Animation Seeking" ),
+            new Entry(AnimatorEvents.class,"Animator Events" ),
+            new Entry(BouncingBalls.class,"Bouncing Balls" ),
+            new Entry(CustomEvaluator.class,"Custom Evaluator" ),
+            new Entry(LayoutAnimationHideShow.class,"Layout Animation Hide Show" ),
+            new Entry(ListFlipper.class,"List Flipper" )        );
     }
 
     private class Entry {
