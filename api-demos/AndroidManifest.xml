@@ -18,6 +18,9 @@
         <activity android:name=".animation.AnimationSeeking"/>
         <activity android:name=".animation.AnimatorEvents"/>
         <activity android:name=".animation.BouncingBalls"/>
+        <activity android:name=".animation.CustomEvaluator"/>
+        <activity android:name=".animation.LayoutAnimationHideShow"/>
+        <activity android:name=".animation.ListFlipper"/>
 
 
     </application>

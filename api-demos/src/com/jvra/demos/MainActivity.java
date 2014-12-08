@@ -40,8 +40,10 @@ public class MainActivity extends ListActivity implements AdapterView.OnItemClic
             new Entry(AnimationLoading.class,"Animation Loading" ),
             new Entry(AnimationSeeking.class,"Animation Seeking" ),
             new Entry(AnimatorEvents.class,"Animator Events" ),
-            new Entry(BouncingBalls.class,"Bouncing Balls" )
-        );
+            new Entry(BouncingBalls.class,"Bouncing Balls" ),
+            new Entry(CustomEvaluator.class,"Custom Evaluator" ),
+            new Entry(LayoutAnimationHideShow.class,"Layout Animation Hide Show" ),
+            new Entry(ListFlipper.class,"List Flipper" )        );
     }
 
     private class Entry {
