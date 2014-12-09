@@ -16,6 +16,8 @@ import android.util.SparseArray;
 import android.view.accessibility.AccessibilityEvent;
 import com.jvra.demos.R;
 
+import java.util.List;
+
 /**
  * Created by Jansel R. Abreu (Vanwolf) on 12/8/2014.
  */
@@ -221,28 +223,22 @@ public class ClockBackService extends AccessibilityService{
             proviedFeedbackType = AccessibilityServiceInfo.FEEDBACK_HAPTIC;
 
 
-            AccessibilityServiceInfo info = new AccessibilityServiceInfo();
-            info.flags =  AccessibilityServiceInfo.FEEDBACK_HAPTIC
+            int flags =   AccessibilityServiceInfo.FEEDBACK_HAPTIC
                         | AccessibilityServiceInfo.FEEDBACK_SPOKEN
                         | AccessibilityServiceInfo.FEEDBACK_AUDIBLE;
 
-            setServiceInfo(info);
+            setServiceInfo(flags);
             mHandler.obtainMessage(MESSAGE_PLAY_EARCON,INDEX_RINGER_SILENT,0).sendToTarget();
         }else if( AudioManager.RINGER_MODE_VIBRATE == mode ){
             proviedFeedbackType = AccessibilityServiceInfo.FEEDBACK_AUDIBLE;
 
-            AccessibilityServiceInfo info = new AccessibilityServiceInfo();
-            info.flags = AccessibilityServiceInfo.FEEDBACK_AUDIBLE | AccessibilityServiceInfo.FEEDBACK_SPOKEN;
-            setServiceInfo(info);
+            setServiceInfo(AccessibilityServiceInfo.FEEDBACK_AUDIBLE | AccessibilityServiceInfo.FEEDBACK_SPOKEN);
 
             mHandler.obtainMessage( MESSAGE_PLAY_EARCON, INDEX_RINGER_SILENT, 0 ).sendToTarget();
         }else if( AudioManager.RINGER_MODE_NORMAL == mode ){
             proviedFeedbackType = AccessibilityServiceInfo.FEEDBACK_SPOKEN;
 
-            AccessibilityServiceInfo info = new AccessibilityServiceInfo();
-            info.flags = AccessibilityServiceInfo.FEEDBACK_SPOKEN;
-
-            setServiceInfo( info );
+            setServiceInfo(AccessibilityServiceInfo.FEEDBACK_SPOKEN);
             mHandler.obtainMessage( MESSAGE_PLAY_EARCON,INDEX_RINGER_NORMAL,0 ).sendToTarget();
         }
     }
@@ -252,7 +248,11 @@ public class ClockBackService extends AccessibilityService{
         info.eventTypes = AccessibilityEvent.TYPES_ALL_MASK;
         info.feedbackType = feedbackType;
         info.notificationTimeout = EVENT_NOTIFICATION_TIMEOUT_MILLIS;
+        info.packageNames = PACKAGE_NAMES;
+
+        setServiceInfo(info);
     }
+
 
     private void registerBroadCastReceiver(){
         IntentFilter filter = new IntentFilter();
@@ -265,15 +265,62 @@ public class ClockBackService extends AccessibilityService{
 
 
     private void playEarcon( int resource ){
-
+        String earconName = mEarconNames.get(resource);
+        if( null == earconName ){
+            Integer resId = sSoundResourceIds.get(resource);
+            if( null != resId ){
+                earconName = "["+resource+"]";
+                mTts.addEarcon(earconName,getPackageName(),resource);
+                mEarconNames.put(resource,earconName);
+            }
+        }
+        mTts.playEarcon(earconName,QUEUING_MODE_INTERRUPT,null);
     }
 
-    @Override
-    public void onAccessibilityEvent(AccessibilityEvent accessibilityEvent) {
 
+    private String formatUtterance( AccessibilityEvent event ){
+        StringBuilder builder = mUuterance;
+        builder.setLength(0);
+
+        List<CharSequence> eventText = event.getText();
+        if( !eventText.isEmpty() ){
+            for(CharSequence text : eventText ){
+                if( text.charAt(0) == '0')
+                    text = text.subSequence(1,text.length());
+                builder.append(text);
+                builder.append(SPACE);
+            }
+            return builder.toString();
+        }
+
+        CharSequence contentDescription = event.getContentDescription();
+        if( null != contentDescription ){
+            builder.append(contentDescription);
+            return builder.toString();
+        }
+        return builder.toString();
+    }
+
+
+    @Override
+    public void onAccessibilityEvent(AccessibilityEvent event) {
+        Log.e( LOG_TAG,proviedFeedbackType+" "+event.toString());
+
+        if( proviedFeedbackType == AccessibilityServiceInfo.FEEDBACK_SPOKEN )
+            mHandler.obtainMessage(MESSAGE_SPEAK,formatUtterance(event)).sendToTarget();
+        else if( proviedFeedbackType == AccessibilityServiceInfo.FEEDBACK_AUDIBLE)
+            mHandler.obtainMessage(MESSAGE_PLAY_EARCON,event.getEventType(),0).sendToTarget();
+        else if( proviedFeedbackType == AccessibilityServiceInfo.FEEDBACK_HAPTIC )
+            mHandler.obtainMessage(MESSAGE_VIBRATE,event.getEventType(),0).sendToTarget();
     }
 
     @Override
     public void onInterrupt() {
+        if( proviedFeedbackType == AccessibilityServiceInfo.FEEDBACK_SPOKEN )
+            mHandler.obtainMessage(MESSAGE_STOP_SPEAK).sendToTarget();
+        else if( proviedFeedbackType == AccessibilityServiceInfo.FEEDBACK_AUDIBLE)
+            mHandler.obtainMessage(MESSAGE_STOP_PLAY_EARCON).sendToTarget();
+        else if( proviedFeedbackType == AccessibilityServiceInfo.FEEDBACK_HAPTIC )
+            mHandler.obtainMessage(MESSAGE_STOP_VIBRATE).sendToTarget();
     }
 }

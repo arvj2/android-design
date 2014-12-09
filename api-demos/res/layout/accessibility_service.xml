@@ -32,6 +32,6 @@
         android:layout_gravity="center"
         android:scaleType="fitCenter"
         android:onClick="onSettings"
-        android:adjustViewBounds="true" />
+        android:adjustViewBounds="false" />
 
 </LinearLayout>

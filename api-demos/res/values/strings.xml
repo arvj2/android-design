@@ -50,4 +50,8 @@
     <string name="task_not_complete">is not complete</string>
 
 
+    
+    <string name="test.native">Test.Native</string>
+    <string name="test.v16">Test.V16.Native</string>
+    <string name="test.land">not land</string>
 </resources>
