@@ -32,7 +32,9 @@ public class AccessibilityMainActivity extends ListActivity implements AdapterVi
 
     private List<Entry> getEntries() {
         return Arrays.asList(
-                new Entry(ClockBackActivity.class, "ClockBackActivity")
+                new Entry(ClockBackActivity.class, "ClockBackActivity"),
+                new Entry(CustomViewAccessibilityActivity.class, "CustomViewAccessibilityActivity"),
+                new Entry(AccessibilityServiceSampleActivity.class, "AccessibilityServiceSampleActivity")
         );
     }
 

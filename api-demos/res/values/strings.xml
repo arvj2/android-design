@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources  xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">api-demos</string>
 
 
@@ -9,6 +9,7 @@
 
     <string name="accessibility_service">Accessibility/Accessibility Service</string>
     <string name="accessibility_service_label">ClockBack</string>
+    <string name="accessibility_service_sample_label">SampleTalkBall</string>
     <string name="accessibility_service_instructions">
         1. Enable TalkBack (Settings -> Accessibility -> TalkBack).
         \n\n2. Enable Explore-by-Touch (Settings -> Accessibility -> Explore by Touch).
@@ -49,9 +50,74 @@
     <string name="task_complete">is complete</string>
     <string name="task_not_complete">is not complete</string>
 
+    <!-- ============================ -->
+    <!--  AppWidget examples strings     -->
+    <!-- ============================ -->
 
-    
-    <string name="test.native">Test.Native</string>
-    <string name="test.v16">Test.V16.Native</string>
-    <string name="test.land">not land</string>
+    <string name="appwidget_configure_instructions">This text will be shown before the date in our example widget.</string>
+    <string name="appwidget_prefix_default">Oh hai</string>
+    <string name="appwidget_text_format"><xliff:g id="prefix">%1$s</xliff:g>: <xliff:g id="time">%2$s</xliff:g></string>
+
+
+    <!-- ============================ -->
+    <!--  App Content examples strings     -->
+    <!-- ============================ -->
+
+    <string name="activity_clipboard">Content/Clipboard/Data Types</string>
+    <string name="copy_text">Copy Text</string>
+    <string name="copy_intent">Copy Intent</string>
+    <string name="copy_uri">Copy URI</string>
+    <string name="clip_type_prompt">Clip Type</string>
+
+    <string name="activity_external_storage">Content/Storage/External Storage</string>
+    <string name="create">Create</string>
+    <string name="delete">Delete</string>
+
+    <string name="activity_styled_text">Content/Resources/<i>Styled</i> <b>Text</b></string>
+    <string name="styled_text_rsrc">Initialized from a resource:</string>
+    <string name="styled_text">Plain, <b>bold</b>, <i>italic</i>, <b><i>bold-italic</i></b></string>
+    <string name="styled_text_prog">Assigned programmatically:</string>
+
+    <string name="activity_text_undo">Content/Undo Manager/Text</string>
+    <string name="text_undo_msg">Demonstrates simple use of UndoManager with text editing
+        in a TextView.</string>
+    <string name="undo">Undo</string>
+    <string name="redo">Redo</string>
+
+    <string name="activity_resources_layout_reference">Content/Resources/Layout Reference</string>
+    <string name="resources_layout_reference_description">Shows how to write layout
+        resource references, so that you can define multiple different configurations of
+        a layout resource that refer to one actual XML definition.</string>
+    <string name="resources_layout_reference_default">Default layout</string>
+    <string name="resources_layout_reference_tablet">Tablet layout</string>
+
+    <string name="activity_resources_width_and_height">Content/Resources/Width and Height</string>
+    <string name="resources_width_and_height_description">The layouts below use -wNNNdp and
+        -hNNNdp to select between different versions based on the size of the screen.</string>
+
+    <string name="activity_resources_smallest_width">Content/Resources/Smallest Width</string>
+    <string name="resources_smallest_width_description">The layouts below use -swNNNdp
+        to select between different versions based on the size of the screen.</string>
+
+    <string name="activity_read_asset">Content/Assets/Read Asset</string>
+
+    <string name="activity_themes">Content/Resources/Themes</string>
+    <string name="activity_resources">Content/Resources/Resources</string>
+
+    <string name="activity_pick_contact">Content/Provider/Pick Contact</string>
+    <string name="pick_contact_msg">Invoke Contacts to pick various kinds of
+        contact data.  None of these require that the caller hold the
+        READ_CONTACTS permission.</string>
+    <string name="pick_contact">Pick a Contact</string>
+    <string name="pick_person">Pick a Person</string>
+    <string name="pick_phone">Pick a Phone</string>
+    <string name="pick_address">Pick an Address</string>
+
+    <string name="activity_changed_contact">Content/Provider/Changed Contacts</string>
+
+    <string name="activity_install_apk">Content/Packages/Install Apk</string>
+
+    <string name="ir_send">Send IR</string>
+    <string name="ir_get_freqs">Get Carrier Frequencies</string>
+
 </resources>

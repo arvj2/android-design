@@ -38,7 +38,8 @@ public class MainActivity extends ListActivity implements AdapterView.OnItemClic
     private List<Entry> getEntries(){
         return Arrays.asList(
                 new Entry(AccessibilityMainActivity.class,"Accessibility" ),
-                new Entry(AnimationMainActivity.class,"Animations" )
+                new Entry(AnimationMainActivity.class,"Animations" ),
+                new Entry(com.jvra.demos.ContentMainActivity.class,"Content" )
         );
     }
 

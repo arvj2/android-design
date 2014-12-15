@@ -34,6 +34,14 @@
                 android:label="@string/accessibility_service">
         </activity>
 
+        <activity android:name=".accessibility.CustomViewAccessibilityActivity"
+                  android:label="@string/accessibility_custom_view"
+                  android:enabled="@bool/atLeastIceCreamSandwich"
+                />
+        
+        <activity android:name=".accessibility.AccessibilityServiceSampleActivity"
+                android:enabled="@bool/atLeastIceCreamSandwich"/>
+
 
         <!-- Accessibility Services-->
         <service android:name=".accessibility.ClockBackService"
@@ -44,6 +52,45 @@
             </intent-filter>
         </service>
 
+        <service android:name=".accessibility.AccessibilityServiceSample"
+                android:label="@string/accessibility_service_sample_label"
+                android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService"/>
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice" android:resource="@xml/accessibility_service_sample"/>
+        </service>
+
+
+        <!-- AppWidget sampkes -->
+        <receiver android:name=".widget.ExampleWidgetProvider">
+            <meta-data android:name="android.appwidget.provider"
+                    android:resource="@xml/appwidget_provider"/>
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".widget.ExampleAppWidgetConfigure">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".widget.ExampleBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.ACTION_TIMEZONE_CHANGED"/>
+                <action android:name="android.intent.ACTION_TIME"/>
+            </intent-filter>
+        </receiver>
+
+
+        <!-- content samples-->
+
+        <activity android:name=".content.ClipboardSample"/>
+        <activity android:name=".ContentMainActivity"/>
+        <activity android:name=".content.ClipboardDimmies"/>
 
     </application>
 </manifest>
