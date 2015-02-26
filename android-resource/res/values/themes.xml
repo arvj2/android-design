@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Holo.Light.New" parent="@android:style/Theme.Holo.Light">
+        <item name="newTextColor">#FF0000</item>
+        <item name="android:textViewStyle">@style/Widget.Holo.Light.TextView.New</item>
+    </style>
+
+</resources>

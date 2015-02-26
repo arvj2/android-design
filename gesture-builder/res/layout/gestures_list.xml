@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+    <ListView android:layout_width="match_parent"
+              android:layout_height="0dip"
+              android:id="@android:id/list"
+              android:layout_weight="1.0"/>
+    
+    <TextView android:layout_width="match_parent"
+              android:layout_height="0dip"
+              android:layout_weight="1.0"
+              android:gravity="center"
+              android:text="@string/gestures_loading"
+              android:id="@+id/empty"
+              android:textAppearance="?android:attr/textAppearanceMedium"
+            />
+
+    
+    <LinearLayout android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  style="@android:style/ButtonBar"
+                  android:orientation="horizontal">
+
+        <Button android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="@string/button_add"
+                android:onClick="addGesture"
+                android:enabled="false"
+                android:id="@+id/addButton"/>
+        
+        <Button android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:text="@string/button_reload"
+                android:layout_weight="1.0"
+                android:enabled="false"
+                android:onClick="reloadGestures"
+                android:id="@+id/reloadButton"/>
+
+    </LinearLayout>
+
+</LinearLayout>

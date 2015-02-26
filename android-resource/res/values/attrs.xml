@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="All">
+        <attr name="font_type"/>
+    </declare-styleable>
+
+    <declare-styleable name="FaceFont">
+        <attr name="font_type" format="enum">
+            <enum name="small" value="1"/>
+            <enum name="large" value="2"/>
+        </attr>
+
+        <attr name="font_allow" format="boolean|reference"/>
+    </declare-styleable>
+    
+    <attr name="newTextColor" format="color|reference"/>
+</resources>

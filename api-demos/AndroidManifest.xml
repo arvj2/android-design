@@ -92,5 +92,11 @@
         <activity android:name=".ContentMainActivity"/>
         <activity android:name=".content.ClipboardDimmies"/>
 
+
+        <!-- media samples-->
+
+        <activity android:name=".MediaMainActivity"/>
+        <activity android:name=".media.AudioFxDemo"/>
+
     </application>
 </manifest>

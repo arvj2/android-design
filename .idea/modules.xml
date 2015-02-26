@@ -5,9 +5,13 @@
       <module fileurl="file://$PROJECT_DIR$/tests/actionbar/actionbar.iml" filepath="$PROJECT_DIR$/tests/actionbar/actionbar.iml" />
       <module fileurl="file://$PROJECT_DIR$/actionbar-compat/actionbar-compat.iml" filepath="$PROJECT_DIR$/actionbar-compat/actionbar-compat.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-animation/android-animation.iml" filepath="$PROJECT_DIR$/android-animation/android-animation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-components/android-components.iml" filepath="$PROJECT_DIR$/android-components/android-components.iml" />
       <module fileurl="file://$PROJECT_DIR$/android-design.iml" filepath="$PROJECT_DIR$/android-design.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android-resource/android-resource.iml" filepath="$PROJECT_DIR$/android-resource/android-resource.iml" />
       <module fileurl="file://$PROJECT_DIR$/api-demos/api-demos.iml" filepath="$PROJECT_DIR$/api-demos/api-demos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cube-live-wallpaper/cube-live-wallpaper.iml" filepath="$PROJECT_DIR$/cube-live-wallpaper/cube-live-wallpaper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gesture-builder/gesture-builder.iml" filepath="$PROJECT_DIR$/gesture-builder/gesture-builder.iml" />
+      <module fileurl="file://$PROJECT_DIR$/image-loader/image-loader.iml" filepath="$PROJECT_DIR$/image-loader/image-loader.iml" />
     </modules>
   </component>
 </project>
-

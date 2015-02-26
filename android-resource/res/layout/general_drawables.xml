@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:this="http://schemas.android.com/apk/res/com.jvra.resource"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:gravity="center"
+              android:background="@drawable/bottom_line"
+              android:layout_height="match_parent">
+
+
+    <!--<ImageView-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:src="@drawable/rectangle"-->
+            <!--android:background="@drawable/shadow_3"-->
+            <!--/>-->
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Click"
+            android:onClick="onClick"
+            />
+
+    <ImageView android:layout_width="200dp"
+            android:layout_height="24dp"
+            android:id="@android:id/icon1"
+            android:background="@android:drawable/progress_horizontal"
+            />
+
+
+
+</LinearLayout>

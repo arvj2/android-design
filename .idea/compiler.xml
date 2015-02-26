@@ -23,8 +23,8 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="actionbar-compat" />
+        <module name="image-loader" />
       </profile>
     </annotationProcessing>
   </component>
 </project>
-
